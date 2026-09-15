@@ -4,23 +4,21 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static com.harkirat.CartSubtotalCalculator.subtotalCalculator;
-import static com.harkirat.CartSubtotalCalculator.totalPrice;
 
 public class CartSubtotalCalculatorTest {
 
-//    static void main(String[] args) {
-//        System.out.println(subtotalCalculator(totalPrice));
-//        System.out.println(subtotalCalculator(emptyArray));
-//        System.out.println(subtotalCalculator(largeNumber));
-//        System.out.println(subtotalCalculator(singlePrice));
-//        System.out.println(subtotalCalculator(addZero));
-//        System.out.println(subtotalCalculator(inputChecking));
-//        System.out.println(subtotalCalculator(repeatCallArr));
-//        System.out.println(subtotalCalculator(negativePrice));
-//        System.out.println(subtotalCalculator(nullArray));
-//    }
+    int[] totalPrice = {1999, 2500, 501};
+    int[] negativePrice = {500, -1};
+    int[] singlePrice = {1999};
+    int[] addZero = {0, 500};
+    int[] largeNumber = {2000000000, 2000000000};
+    int[] inputChecking = {100, 101, 200};
+    int[] repeatCallArr = {100, 101, 200};
+    int[] emptyArray = {};
+    int[] nullArray = null;
+
     @Test
-    public void totalPriceCalculatorTest() {
+    public void shouldReturnSumForMultipleValidPrices() {
         Assert.assertEquals(subtotalCalculator(totalPrice), 5000);
     }
 }
