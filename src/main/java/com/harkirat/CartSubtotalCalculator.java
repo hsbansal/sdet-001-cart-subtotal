@@ -2,7 +2,7 @@ package com.harkirat;
 
 import java.util.Arrays;
 
-class CartSubtotalCalculator {
+public class CartSubtotalCalculator {
 
     public static long subtotalCalculator(int[] a) {
         long t = 0;
