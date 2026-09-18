@@ -15,38 +15,38 @@ public class CartSubtotalCalculatorTest {
     }
 
     @Test (groups = {"NegativeScenarios"},expectedExceptions = IllegalArgumentException.class)
-    public void verifyAddNegative() {
+    public void shouldRejectNegativePrice() {
         int[] negativePrice = {500, -1};
         subtotalCalculator(negativePrice);
     }
 
     @Test(groups = {"NegativeScenarios"},expectedExceptions = IllegalArgumentException.class)
-    public void noArraySupplied(){
+    public void shouldRejectNullArray(){
         int[] nullArray = null;
         subtotalCalculator(nullArray);
     }
 
     @Test(groups = { "PositiveScenario" })
-    public void verifySinglePrice() {
+    public void shouldReturnSingleItemPrice() {
         int[] singlePrice = {1999};
         Assert.assertEquals(subtotalCalculator(singlePrice),1999L);
     }
 
     @Test(groups = { "PositiveScenario" })
-    public void emptyArray() {
+    public void shouldAcceptEmptyArray() {
         int[] emptyArray = {};
         Assert.assertEquals(subtotalCalculator(emptyArray),0L);
     }
 
     @Test (groups = { "PositiveScenario" })
-    public void verifyAddZero() {
+    public void shouldAllowZeroPricedItems() {
         int[] addZero = {0, 500};
         Assert.assertEquals(subtotalCalculator(addZero), 500L);
     }
 
     @Test (groups = {"PositiveScenario"})
 
-    public void verifyLargeNumber() {
+    public void shouldCalculateSubtotalBeyondIntRange() {
         int[] largeNumber = {2000000000, 2000000000};
         Assert.assertEquals(subtotalCalculator(largeNumber),4000000000L);
     }
