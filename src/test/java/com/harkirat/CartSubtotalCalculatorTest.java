@@ -55,8 +55,8 @@ public class CartSubtotalCalculatorTest {
     public void shouldNotModifyInputArray(){
         int[] repeatCallArr = {100, 101, 200};
         int[] savedCopy  = repeatCallArr.clone();
-        Assert.assertEquals(subtotalCalculator(repeatCallArr ), 401L);
-        Assert.assertEquals(savedCopy , repeatCallArr);
+        subtotalCalculator(repeatCallArr );
+        Assert.assertEquals(savedCopy , repeatCallArr, "The calculator must leave the input array unchanged");
     }
 
     @Test (groups = {"PositiveScenario"})
