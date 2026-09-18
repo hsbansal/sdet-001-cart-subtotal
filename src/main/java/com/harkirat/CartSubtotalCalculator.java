@@ -4,19 +4,19 @@ import java.util.Arrays;
 
 public class CartSubtotalCalculator {
 
-    public static long subtotalCalculator(int[] a) {
-        long t = 0;
-        if (a != null) {
-            for (int temp : a) {
-                if (temp > -1) {
-                    t = temp + t;
+    public static long subtotalCalculator(int[] prices) {
+        long subtotal = 0;
+        if (prices != null) {
+            for (int price : prices) {
+                if (price > -1) {
+                    subtotal = price + subtotal;
                 } else {
-                    throw new IllegalArgumentException("Invalid price = " + temp);
+                    throw new IllegalArgumentException("Invalid price = " + price);
                 }
             }
         } else {
-            throw new IllegalArgumentException("Array is null " + Arrays.toString(a));
+            throw new IllegalArgumentException("Array is null " + Arrays.toString(prices));
         }
-        return t;
+        return subtotal;
     }
 }

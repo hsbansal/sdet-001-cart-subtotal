@@ -52,7 +52,14 @@ public class CartSubtotalCalculatorTest {
     }
 
     @Test (groups = {"PositiveScenario"})
+    public void shouldNotModifyInputArray(){
+        int[] repeatCallArr = {100, 101, 200};
+        int[] savedCopy  = repeatCallArr.clone();
+        Assert.assertEquals(subtotalCalculator(repeatCallArr ), 401L);
+        Assert.assertEquals(savedCopy , repeatCallArr);
+    }
 
+    @Test (groups = {"PositiveScenario"})
     public void shouldCalculateEachCallIndependently(){
         int[] inputChecking = {100, 101, 200};
         Assert.assertEquals(subtotalCalculator(inputChecking), 401L);
@@ -60,8 +67,8 @@ public class CartSubtotalCalculatorTest {
     }
 
     @Test (groups = {"PositiveScenario"})
-    public void verifyRepeatCallArr(){
-        int[] repeatCallArr = {200, 200, 200};
-        Assert.assertEquals(subtotalCalculator(repeatCallArr), 600L);
+    public void shouldCountDuplicatePricesSeparately(){
+        int[] repeatCallArr = {200, 200};
+        Assert.assertEquals(subtotalCalculator(repeatCallArr), 400L);
     }
 }
